@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import eslint from 'vite-plugin-eslint';
 import svgr from "vite-plugin-svgr";
-
+import path from "path"
 
 export default defineConfig({
     plugins: [
@@ -19,6 +19,11 @@ export default defineConfig({
         tailwindcss(),
 
     ],
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./src"),
+        },
+    },
     build: {
         commonjsOptions: {
             transformMixedEsModules: true
